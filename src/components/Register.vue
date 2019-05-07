@@ -3,7 +3,7 @@
     <div class="col-md-12 col-lg-12">
       <div class="card">
         <div class="card-body">
-          <img class="mx-auto d-block" src="../assets/icon.png" alt="">
+          <img class="mx-auto d-block" src="../../src/assets/icon.png" alt="">
           <form @submit.prevent="onSubmit">
             <div class="form-group">
               <label for="email">邮箱</label>
