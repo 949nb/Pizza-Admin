@@ -78,13 +78,15 @@ export default {
   },
   created(){
     fetch("https://wd9519199794alqwsb.wilddogio.com/HYmenu.json")
-    // this.$http.get('HYmenu.json')
       .then(res=>{
         return res.json()
       })
       .then(data=>{
         console.log(data)
         this.getMenuItems = data
+      })
+      .catch(err=>{
+        console.log(err);
       })
 
   },
