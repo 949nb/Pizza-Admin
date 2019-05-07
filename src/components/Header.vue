@@ -26,7 +26,7 @@
           <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
         </svg>
       </a>
-      <a href="/" class="navbar-brand">Pizza点餐系统</a>
+      <router-link :to="{name:'homeLink'}" class="navbar-brand"> Pizza点餐系统</router-link>
       <ul class="navbar-nav">
         <li><router-link :to="{name:'homeLink'}" class="nav-link">主页</router-link></li>
         <li><router-link :to="{name:'menuLink'}" class="nav-link">菜单</router-link></li>
@@ -46,5 +46,5 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 </style>
