@@ -83,7 +83,7 @@ export default {
       //   return res.json()
       // })
       .then(res=>{
-        console.log(data)
+        console.log(res)
         this.getMenuItems = res.data
       })
 
