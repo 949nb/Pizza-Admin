@@ -3,8 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
-import {routes} from './routes'
+import { routes } from './routes'
 import axios from 'axios'
+import { store } from "./components/vuex/store";
 
 Vue.config.productionTip = false;
 
@@ -32,5 +33,6 @@ new Vue({
   el: '#app',
   components: { App },
   template: '<App/>',
-  router: router
+  router: router,
+  store: store
 });

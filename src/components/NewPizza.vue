@@ -83,7 +83,10 @@
         // })
         this.$http.post('HYmenu.json',data)
           // .then(res=> res.json())
-          .then(res => this.$router.push({name:'menuLink'}))
+          // .then(res => this.$router.push({name:'menuLink'}))
+          .then(res => {
+            this.$store.commit("addMenuItem",data)
+          })
           .catch(err => console.log(err))
       }
     }

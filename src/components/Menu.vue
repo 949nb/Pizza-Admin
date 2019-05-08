@@ -63,10 +63,13 @@ export default {
     return{
       baskets:[],
       basketText:'购物车没有任何商品',
-      getMenuItems:{}
+      // getMenuItems:{}
     }
   },
   computed:{
+    getMenuItems(){
+      return this.$store.getters.getMenuItems
+    },
     total(){//总价
       let totalCost = 0;
       for(let index in this.baskets){
@@ -82,8 +85,9 @@ export default {
         return res.json()
       })
       .then(data=>{
-        console.log(data)
-        this.getMenuItems = data
+        // console.log(data);
+        // this.getMenuItems = data
+        this.$store.commit('setMenuItems',data)
       })
       .catch(err=>{
         console.log(err);

@@ -15,7 +15,7 @@
               <th>删除</th>
             </tr>
           </thead>
-          <tbody v-for="item in getMenuItems" :key="item.name">
+          <tbody v-for="item in getMenuItems" :key="item.id">
             <tr>
               <td>{{item.name}}</td>
               <td>
@@ -35,11 +35,21 @@
   export default {
     data(){
       return{
-        getMenuItems: []
+        // getMenuItems: []
       }
     },
     components:{
       'new-pizza': NewPizza
+    },
+    computed:{
+      getMenuItems:{
+        get(){
+          return this.$store.state.menuItems
+        },
+        set(){
+
+        }
+      }
     },
     created() {
       fetch("https://wd9519199794alqwsb.wilddogio.com/HYmenu.json")
@@ -54,7 +64,9 @@
             data[key].id = key;
             menuArray.push(data[key])
           }
-          this.getMenuItems = menuArray
+          // this.getMenuItems = menuArray
+          this.$store.commit("setMenuItems",menuArray);
+          console.log(menuArray)
         })
     },
     methods:{
@@ -66,7 +78,10 @@
           }
         })
           .then(res => res.json())
-          .then(data => this.$router.push({name:'menuLink'}))
+          // .then(data => this.$router.push({name:'menuLink'}))
+          .then(data => {
+            this.$store.commit("removeItem",item)
+          })
           .catch(err => console.log(err))
       }
     }
